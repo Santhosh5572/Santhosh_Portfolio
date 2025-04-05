@@ -1,0 +1,11 @@
+{
+  "title": "EB BILL CALCULATOR",
+  "client": "OWN PROJECT",
+  "work": "WEB DESIGN",
+  "mainImage": "./images/EB.png",
+  "otherImages": ["./images/EB2.png", "./images/EB1.png"],
+  "storyTitle": "Project Story",
+  "storyContent": "The EB Bill Calculator is a web-based tool that allows users to estimate their electricity bills by entering the number of units consumed. The calculator uses predefined rates based on the consumption slabs to compute the total bill amount. It is designed to be user-friendly and responsive, providing instant calculations as users input their data. ",
+  "dayOneTitle": "Key Contributions",
+  "dayOneContent": ": Designed and Implemented the Responsive EB BILL Calculator using the HTML,CSS and JAVASCRIPT."
+}

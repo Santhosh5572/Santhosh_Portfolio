@@ -1,0 +1,11 @@
+{
+  "title": "INNOVATIVE WEBSITE DESIGN",
+  "client": "SIGMA INDUSTRIES",
+  "work": "  WEB DESIGN",
+  "mainImage": "./images/sigmaa.png",
+  "otherImages": ["./images/sigma2.png", "./images/sigma.png"],
+  "storyTitle": "Project Story",
+  "storyContent": " Our project aims to develop a dynamic and professional website for Sigma Industries, showcasing its       expertise in automotive plastic manufacturing. The site will highlight products, industry standards, innovation while ensuring a strong brand presence.",
+  "dayOneTitle": "Key Contributions",
+  "dayOneContent": "I work on implementing the UI/UX design using ASTROJS, TAILWIND CSS, ensuring a seamless experience across desktop and mobile devices."
+}

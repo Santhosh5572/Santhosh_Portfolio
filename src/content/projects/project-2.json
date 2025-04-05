@@ -1,0 +1,12 @@
+
+{
+  "title": "INNOVATIVE WEBSITE DESIGN",
+  "client": "MOTIFF BESPOKE",
+  "work": "WEB DESIGN",
+  "mainImage": "./images/motiff1.png",
+  "otherImages": ["./images/motiff2.png", "./images/motiff3.png"],
+  "storyTitle": "Project Story",
+  "storyContent": "Our project aims to design and develop a modern, user-friendly website for a MOTIFF BESPOKE that showcases its craftsmanship, services, and unique offerings. The website will serve as a digital storefront, enhancing the company’s online presence and attracting new customers. ",
+  "dayOneTitle": "Key Contributions",
+  "dayOneContent": "I work on implementing the UI/UX design using ASTROJS, TAILWIND CSS, and MARKDOWN, ensuring a seamless experience across desktop and mobile devices. "
+}
