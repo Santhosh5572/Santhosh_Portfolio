@@ -1,0 +1,58 @@
+---
+const { isClicked } = Astro.props;
+
+const links = [
+  { name: 'home', href: '/#home' },
+  { name: 'about me', href: '/#about' },
+  { name: 'my work', href: '/#work' },
+  { name: 'contact', href: '/#contact' },
+];
+---
+
+<nav class={`nav ${isClicked ? 'block' : 'hidden'} md:block`}>
+  <ul id="nav-links" class="flex flex-col md:flex-row gap-6 md:gap-8 text-lg font-medium">
+    {links.map(link => (
+      <li>
+        <a
+          href={link.href}
+          class="hover:text-yellow-500 transition-colors smooth-scroll"
+          data-link={link.name}
+        >
+          {link.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<!-- Tailwind CSS for smooth scroll -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const offset = 70;
+    const links = document.querySelectorAll('#nav-links a');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        const id = href.split('#')[1];
+        if (!id) return;
+
+        const target = document.getElementById(id);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - offset,
+            behavior: 'smooth'
+          });
+
+          // Highlight active link
+          links.forEach(l => l.classList.remove('text-yellow-500'));
+          link.classList.add('text-yellow-500');
+        }
+      });
+    });
+  });
+</script>
