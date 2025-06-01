@@ -1,9 +1,10 @@
-<<<<<<< HEAD
-# Astro Starter Kit: Minimal
+# Santhosh Portfolio – Astro Starter Kit: Minimal
+
+This is my personal portfolio website built using [Astro](https://astro.build).
 
 ```sh
 npm create astro@latest -- --template minimal
-```
+
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
@@ -49,3 +50,6 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 =======
 # Santhosh-Portfolio
 >>>>>>> 3ff29849ec5ae198065d7d76ca1db096486039a2
+=======
+# Santhosh_Portfolio
+>>>>>>> 7b014d2bc68c8e0aa3432d47a74e73b5897a3a1e
