@@ -12,81 +12,96 @@ const { title, mainImage, client, work } = project.data;
 ---
 
 <article class="project">
-  <a class="image" href={`/project/${project.id}`} aria-label={title}>
-    <Image width={500} height={500} src={mainImage} alt={title} />
+  <a class="image-link" href={`/project/${project.id}`} aria-label={title}>
+    <Image width={600} height={400} src={mainImage} alt={title} />
   </a>
 
-  <a href={`/project/${project.id}`} class="title" aria-label={title}>
-    <h3>{title}</h3>
-  </a>
+  <div class="project__content">
+    <a href={`/project/${project.id}`} class="title-link" aria-label={title}>
+      <h3>{title}</h3>
+    </a>
 
-  <div class="details">
-    <div class="flex">
-      <p>Client:</p>
-      <span>{client}</span>
-    </div>
+    <div class="details">
+      <div class="flex">
+        <p>Client:</p>
+        <span>{client}</span>
+      </div>
 
-    <div class="flex">
-      <p>Work:</p>
-      <span>{work}</span>
+      <div class="flex">
+        <p>Work:</p>
+        <span>{work}</span>
+      </div>
     </div>
   </div>
 </article>
 
 <style>
+  .project {
+    background-color: var(--secondary-clr-900);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 2rem;
+  }
+
+  .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+
   .project:not(:last-child) {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
-  .image {
+  .image-link {
+    display: block;
     width: 100%;
+    line-height: 0;
   }
 
-  img {
-    margin-bottom: 1.5rem;
-    border-radius: 0.5rem;
-    width: 100%;
+  .project__content {
+    padding: 1.5rem;
   }
 
-  .title {
-    position: relative;
+  .project__content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
     color: var(--secondary-clr-100);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
     transition: color 0.3s ease-in-out;
   }
 
-  .title::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 4px;
-    border-radius: 0.4rem;
-    background-color: var(--primary-clr-400);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .title:hover {
+  .title-link:hover h3 {
     color: var(--primary-clr-400);
   }
 
-  .title:hover::after {
-    transform: translateY(-4px);
+  .details {
+    margin-top: 1rem;
   }
 
   .flex {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .flex:not(:last-child) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .details p {
     color: var(--secondary-clr-300);
+    font-weight: 600;
+  }
+
+  .details span {
+    color: var(--secondary-clr-200);
+  }
+
+  @media (min-width: 768px) {
+    .project:not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 </style>

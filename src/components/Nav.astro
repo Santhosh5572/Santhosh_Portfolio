@@ -9,13 +9,13 @@ const links = [
 ];
 ---
 
-<nav class={`nav ${isClicked ? 'block' : 'hidden'} md:block`}>
-  <ul id="nav-links" class="flex flex-col md:flex-row gap-6 md:gap-8 text-lg font-medium">
+<nav class={`nav ${isClicked ? 'showMenu' : ''}`}>
+  <ul id="nav-links" class="menu">
     {links.map(link => (
       <li>
         <a
           href={link.href}
-          class="hover:text-yellow-500 transition-colors smooth-scroll"
+          class="smooth-scroll"
           data-link={link.name}
         >
           {link.name}
@@ -30,6 +30,7 @@ const links = [
   document.addEventListener('DOMContentLoaded', () => {
     const offset = 70;
     const links = document.querySelectorAll('#nav-links a');
+    const header = document.getElementById('site-header');
 
     links.forEach(link => {
       link.addEventListener('click', (e) => {
@@ -43,16 +44,139 @@ const links = [
 
         const target = document.getElementById(id);
         if (target) {
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
-            top: target.offsetTop - offset,
+            top: targetPosition - (header ? header.offsetHeight : offset),
             behavior: 'smooth'
           });
 
-          // Highlight active link
-          links.forEach(l => l.classList.remove('text-yellow-500'));
-          link.classList.add('text-yellow-500');
+          // Highlight active link (consider using Intersection Observer for better accuracy)
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
         }
+
+         // Close mobile menu after clicking a link
+         const mobileMenu = document.querySelector('.nav');
+         const menuToggle = document.getElementById('menu-toggle');
+         if(mobileMenu && menuToggle && mobileMenu.classList.contains('showMenu')) {
+           mobileMenu.classList.remove('showMenu');
+           menuToggle.classList.remove('fa-xmark'); // Assuming xmark is the close icon
+           menuToggle.classList.add('fa-bars'); // Assuming bars is the open icon
+         }
       });
     });
+
+    // Header scrolling behavior
+    const handleScroll = () => {
+      if (header) {
+        if (window.scrollY > 50) { // Adjust scroll threshold as needed
+          header.classList.add('scrolling');
+        } else {
+          header.classList.remove('scrolling');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run on load in case page is already scrolled
+
+    // Mobile menu toggle behavior
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.querySelector('.nav');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('showMenu');
+        if (mobileMenu.classList.contains('showMenu')) {
+          menuToggle.classList.remove('fa-bars');
+          menuToggle.classList.add('fa-xmark');
+        } else {
+          menuToggle.classList.remove('fa-xmark');
+          menuToggle.classList.add('fa-bars');
+        }
+      });
+    }
   });
 </script>
+
+<style>
+  /* Styles for mobile navigation (applied by default) */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px; /* Adjust as needed */
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: flex-start; /* Justify content to the start */
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    background-color: var(--secondary-clr-700); /* Background color */
+    padding-top: 5rem; /* Space from the top */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+    z-index: 100; /* Ensure it's above other content */
+  }
+
+  .nav.showMenu {
+    transform: translateX(0);
+  }
+
+  .menu {
+    list-style: none;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .menu li {
+    margin-bottom: 1.2rem; /* Space between links */
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: var(--secondary-clr-100);
+    font-size: 1.1rem; /* Link font size */
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    display: block; /* Make links block level for better click area */
+    padding: 0.5rem 0; /* Add some padding */
+  }
+
+  .menu a:hover,
+  .menu a.active {
+    color: var(--primary-clr-400);
+  }
+
+  /* Styles for desktop navigation */
+  @media (min-width: 768px) {
+    .nav {
+      position: static; /* Static position on desktop */
+      width: auto; /* Auto width */
+      height: auto; /* Auto height */
+      transform: translateX(0); /* Remove transform */
+      background-color: transparent; /* Transparent background */
+      box-shadow: none;
+      padding-top: 0;
+      flex-direction: row; /* Arrange items horizontally */
+      align-items: center; /* Center items vertically */
+      z-index: auto; /* Reset z-index */
+    }
+
+    .menu {
+      display: flex;
+      gap: 1.8rem; /* Space between desktop links */
+      padding: 0;
+      width: auto;
+    }
+
+    .menu li {
+      margin-bottom: 0;
+    }
+
+    .menu a {
+       font-size: 1rem; /* Adjusted desktop link size */
+       padding: 0; /* Remove padding */
+    }
+  }
+</style>
