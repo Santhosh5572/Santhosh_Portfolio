@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import staticAdapter from '@astrojs/adapter-static';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   server: {
@@ -10,6 +10,6 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [react()],
-  output: 'static', // change output to static for this adapter
-  adapter: staticAdapter(),
+  output: 'server',
+  adapter: netlify(),
 });
