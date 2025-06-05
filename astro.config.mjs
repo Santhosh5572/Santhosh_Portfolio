@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   server: {
@@ -10,6 +9,7 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [react()],
-  output: 'server',
-  adapter: netlify(),
+  output: 'static',
+  site: 'https://santhosh.github.io',
+  base: '/SANTHOSH-PORTFOLIO'
 });
