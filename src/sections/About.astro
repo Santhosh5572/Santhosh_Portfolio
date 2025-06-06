@@ -1,79 +1,37 @@
 ---
 import { Image } from 'astro:assets';
-import Button from '../components/Button.astro';
-import AboutImage from '../assets/sandyy.jpg';
----
+import AboutImage from '../assets/Sand.jpg';
+--- 
 
-<section id="about me" class="about pt-section">
-  <div class="container">
-    <div class="grid">
-      <div class="about__content">
-        <h2>About me</h2>
-        <p>
-          Hi, I'm Santhosh L. I am a Web Developer who builds and maintains dynamic, responsive websites and web applications using modern technologies like HTML, CSS, JavaScript, Tailwind CSS, Astro JS, and various frameworks to create seamless and efficient user experiences.
+<section id="about-me" class="pt-20 bg-black text-white">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-32 items-center">
+      
+      <!-- Content -->
+      <div class="text-center md:text-left">
+        <h2 class="text-5xl font-bold mb-6">About Me</h2>
+        <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-10">
+          Hi, I'm <strong>Santhosh L</strong> , a Web Developer with a focus on building fast, responsive, and accessible websites and web applications. I work with modern tools like <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Tailwind CSS</strong>, <strong>Astro JS</strong>, and <strong>React</strong> to create seamless user experiences and clean, maintainable code.
+          <br /><br />
+          I'm passionate about crafting intuitive interfaces, optimizing performance, and continuously learning new technologies to bring ideas to life on the web. Whether it's a landing page, full-stack project, or a custom component — I love turning concepts into real, functional digital experiences.
         </p>
-        <!-- <Button text="Discover more" href="/" /> -->
-        <a href="/SANTHOSH_Resume.pdf" download class="btn resume-button">Download Resume</a>
+        <a 
+          href="/SANTHOSH_Resume.pdf" 
+          download 
+          class="inline-block mt-4 px-6 py-3 bg-[#FF9143] hover:bg-[#AB6432] text-white font-semibold rounded-lg shadow transition duration-300"
+        >
+          Download Resume
+        </a>
       </div>
 
-      <div class="about__image">
-        <Image src={AboutImage} alt="About Image" />
+      <!-- Image -->
+      <div class="flex justify-center">
+        <Image 
+          src={AboutImage} 
+          alt="Santhosh L" 
+          class="rounded-lg shadow-lg max-w-96 h-96"
+        />
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .about__content {
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .about__content p {
-    margin-bottom: 2rem;
-    line-height: 1.7;
-    color: var(--secondary-clr-200);
-    font-size: 1.1rem;
-  }
-
-  .resume-button {
-    margin-top: 1rem;
-  }
-
-  .about__image {
-    position: relative;
-  }
-
-  .about__image img {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  @media (min-width: 768px) {
-    .about__content {
-      text-align: left;
-      margin-bottom: 0;
-    }
-
-    .about__content p {
-      font-size: 1.1rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4rem;
-      place-items: center;
-      align-items: start;
-    }
-
-    .about__image {
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .grid {
-      gap: 6rem;
-    }
-  }
-</style>

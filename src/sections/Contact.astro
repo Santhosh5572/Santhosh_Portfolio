@@ -1,180 +1,42 @@
-<footer id="contact" class="pt-section">
-  <div class="container">
-    <div class="content">
-      <div class="title">
-        <h3>Get in Touch With Me</h3>
-        <a class="mail" href="mailto:demo@gmail.com" target="_blank"
-          >santhoshloganathan19@gmail.com</a
-        >
+<footer id="contact" class="bg-secondary-900 text-center pt-12 sm:pt-16 pb-6 sm:pb-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-8 sm:mb-12">
+      <!-- Title and Email -->
+      <div class="mb-8 sm:mb-12 md:mb-0 text-center md:text-left">
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-secondary-100 mb-3 sm:mb-4">Get in Touch With Me</h3>
+        <a href="mailto:santhoshloganathan19@gmail.com" target="_blank"
+          class="text-lg sm:text-xl md:text-2xl font-semibold text-primary-400 hover:underline">
+          santhoshloganathan19@gmail.com
+        </a>
       </div>
 
-      <div class="address-info">
-        <img src="/santhosh-logo.png" alt="logo" />
+      <!-- Address Info -->
+      <div class="flex flex-col md:items-end text-center md:text-right border-b md:border-none border-secondary-700 pb-6 sm:pb-8 md:pb-0">
+        <img src="/santhosh-logo.png" alt="logo" class="mx-auto md:mx-0 mb-4 sm:mb-6 md:mb-4 w-16 sm:w-20 md:w-24" />
 
-        <div>
-          <a class="phone" href="tel:+9 0283353">+91 7305506602</a>
+        <a href="tel:+91 7305506602" class="text-sm sm:text-base text-secondary-200 hover:text-primary-400 mb-2 block">
+          +91 7305506602
+        </a>
 
-          <div class="social-links">
-            <a href=" https://www.linkedin.com/in/santhosh-l-570306264" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-
-            <a href="https://github.com/Santhosh5572" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-
-            <a href="https://www.instagram.com/mr__santhosh_" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-          </div>
+        <div class="flex justify-center md:justify-end items-center gap-3 sm:gap-4 mt-3 sm:mt-4">
+          <a href="https://www.linkedin.com/in/santhosh-l-570306264" aria-label="LinkedIn"
+             class="text-xl sm:text-2xl text-secondary-100 hover:text-primary-400 hover:-translate-y-1 transition duration-300">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/Santhosh5572" aria-label="GitHub"
+             class="text-xl sm:text-2xl text-secondary-100 hover:text-primary-400 hover:-translate-y-1 transition duration-300">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.instagram.com/mr__santhosh_" aria-label="Instagram"
+             class="text-xl sm:text-2xl text-secondary-100 hover:text-primary-400 hover:-translate-y-1 transition duration-300">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
         </div>
       </div>
     </div>
 
-    <p class="copyright">
-      © {new Date().getFullYear()}. All rights reserved.
+    <p class="text-xs sm:text-sm text-secondary-300 text-center pt-3 sm:pt-4">
+      © <script>document.write(new Date().getFullYear().toString());</script>. All rights reserved.
     </p>
   </div>
 </footer>
-
-<style>
-  footer {
-    background-color: var(--secondary-clr-900);
-    text-align: center;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-  }
-
-  .title {
-    margin-bottom: 3rem;
-  }
-
-  footer h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--secondary-clr-100);
-  }
-
-  .mail {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-clr-400);
-    text-decoration: none;
-    transition: color 0.3s ease-in;
-  }
-
-  .mail:hover {
-    text-decoration: underline;
-  }
-
-  footer img {
-    margin-inline: auto;
-    margin-bottom: 1.5rem;
-    width: 80px;
-  }
-
-  .address-info {
-    border-bottom: 1px solid var(--secondary-clr-700);
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .phone {
-    color: var(--secondary-clr-200);
-    transition: color 0.3s ease-in;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .phone:hover {
-    color: var(--primary-clr-400);
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .social-links a {
-    font-size: 1.8rem;
-    color: var(--secondary-clr-100);
-    transition: all 0.3s ease-in;
-  }
-
-  .social-links a:hover {
-    color: var(--primary-clr-400);
-    transform: translateY(-0.3rem);
-  }
-
-  .copyright {
-    padding-top: 1rem;
-    color: var(--secondary-clr-300);
-    font-size: 0.9rem;
-  }
-
-  @media (min-width: 768px) {
-    .address-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    footer img {
-      margin: unset;
-      width: 100px;
-    }
-
-    .content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-    }
-
-    .title {
-      margin-bottom: 0;
-      text-align: left;
-    }
-
-    .mail {
-      font-size: 2rem;
-    }
-
-    footer h3 {
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-
-    .phone {
-      margin-bottom: 0.5rem;
-      text-align: right;
-    }
-
-    .social-links {
-      justify-content: flex-end;
-    }
-
-    .copyright {
-      text-align: center;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .content {
-      margin-bottom: 4rem;
-    }
-    .mail {
-      font-size: 2.2rem;
-    }
-    footer h3 {
-      font-size: 2rem;
-    }
-  }
-</style>

@@ -7,101 +7,32 @@ interface Props {
 }
 
 const { project } = Astro.props;
-
 const { title, mainImage, client, work } = project.data;
 ---
-
-<article class="project">
-  <a class="image-link" href={`/project/${project.id}`} aria-label={title}>
+<div class="bg-black">
+<article
+  class="bg-secondary-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 mb-8"
+>
+  <a href={`/project/${project.id}`} aria-label={title} class="block w-full leading-none">
     <Image width={600} height={400} src={mainImage} alt={title} />
   </a>
 
-  <div class="project__content">
-    <a href={`/project/${project.id}`} class="title-link" aria-label={title}>
-      <h3>{title}</h3>
+  <div class="p-6">
+    <a href={`/project/${project.id}`} class="hover:text-primary-400 transition-colors duration-300" aria-label={title}>
+      <h3 class="text-xl font-semibold mb-3 text-secondary-100">{title}</h3>
     </a>
 
-    <div class="details">
-      <div class="flex">
-        <p>Client:</p>
-        <span>{client}</span>
+    <div class="mt-4 space-y-2">
+      <div class="flex items-center gap-3 text-sm">
+        <p class="text-secondary-300 font-semibold">Client:</p>
+        <span class="text-secondary-200">{client}</span>
       </div>
 
-      <div class="flex">
-        <p>Work:</p>
-        <span>{work}</span>
+      <div class="flex items-center gap-3 text-sm">
+        <p class="text-secondary-300 font-semibold">Work:</p>
+        <span class="text-secondary-200">{work}</span>
       </div>
     </div>
   </div>
 </article>
-
-<style>
-  .project {
-    background-color: var(--secondary-clr-900);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin-bottom: 2rem;
-  }
-
-  .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  }
-
-  .project:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-
-  .image-link {
-    display: block;
-    width: 100%;
-    line-height: 0;
-  }
-
-  .project__content {
-    padding: 1.5rem;
-  }
-
-  .project__content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--secondary-clr-100);
-    transition: color 0.3s ease-in-out;
-  }
-
-  .title-link:hover h3 {
-    color: var(--primary-clr-400);
-  }
-
-  .details {
-    margin-top: 1rem;
-  }
-
-  .flex {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .flex:not(:last-child) {
-    margin-bottom: 0.4rem;
-  }
-
-  .details p {
-    color: var(--secondary-clr-300);
-    font-weight: 600;
-  }
-
-  .details span {
-    color: var(--secondary-clr-200);
-  }
-
-  @media (min-width: 768px) {
-    .project:not(:last-child) {
-      margin-bottom: 0;
-    }
-  }
-</style>
+</div>

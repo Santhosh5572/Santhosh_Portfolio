@@ -16,92 +16,24 @@ const skills = [
   { name: 'Web Performance', image: '/icons/performance.jpg' }, // Placeholder path (example icon)
 ];
 ---
+<section id="skills" class="pt-16 bg-black">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-20 text-white">My Skills</h2>
 
-<section id="skills" class="pt-section">
-  <div class="container">
-    <h2>My Skills</h2>
-
-    <div class="skills-grid">
+    <!-- Responsive grid for all devices -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 text-center">
       {skills.map((skill) => (
-        <div class="skill-item">
-          <img src={skill.image} alt={`${skill.name} icon`} class="skill-icon" />
-          <p class="skill-name">{skill.name}</p>
+        <div 
+          class="bg-gray-800 text-white p-4 sm:p-6 rounded-xl font-medium flex flex-col items-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-[#FF9143] group"
+        >
+          <img 
+            src={skill.image} 
+            alt={`${skill.name} icon`} 
+            class="w-10 h-10 sm:w-14 sm:h-14 mb-3 sm:mb-4 object-contain filter grayscale group-hover:grayscale-0 transition duration-300" 
+          />
+          <p class="text-sm sm:text-base font-semibold group-hover:text-gray-900 transition-colors">{skill.name}</p>
         </div>
       ))}
     </div>
   </div>
 </section>
-
-<style>
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjusted minmax for better fit */
-    gap: 2rem; /* Increased gap for better spacing */
-    justify-items: center;
-    text-align: center;
-  }
-
-  .skill-item {
-    background-color: var(--secondary-clr-800);
-    color: var(--secondary-clr-100);
-    padding: 1.5rem 1rem; /* Adjusted padding */
-    border-radius: 0.75rem; /* Slightly more rounded corners */
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added box-shadow to transition */
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add initial subtle shadow */
-  }
-
-  .skill-item:hover {
-    transform: translateY(-8px); /* More pronounced lift effect */
-    background-color: var(--primary-clr-400); /* Highlight background */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* More pronounced shadow on hover */
-  }
-
-   .skill-item:hover .skill-name {
-      color: var(--secondary-clr-900); /* Darker text on hover for contrast */
-  }
-
-  .skill-icon {
-    width: 50px; /* Increased icon size */
-    height: 50px; /* Increased icon size */
-    margin-bottom: 1rem; /* Increased space below icon */
-    object-fit: contain;
-    filter: grayscale(50%); /* Subtle grayscale filter */
-    transition: filter 0.3s ease-in-out; /* Add transition to filter */
-  }
-
-  .skill-item:hover .skill-icon {
-     filter: grayscale(0%); /* Remove grayscale on hover */
-  }
-
-  .skill-name {
-      font-size: 1.1rem; /* Slightly larger font size */
-      font-weight: 600;
-      color: var(--secondary-clr-100);
-      transition: color 0.3s ease-in-out;
-  }
-
-
-  /* Adjust grid for smaller screens */
-  @media (max-width: 480px) {
-    .skills-grid {
-      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Further adjusted for smaller screens */
-      gap: 1rem;
-    }
-    .skill-item {
-       padding: 1rem 0.5rem;
-    }
-     .skill-icon {
-       width: 40px;
-       height: 40px;
-       margin-bottom: 0.8rem;
-     }
-     .skill-name {
-       font-size: 0.9rem;
-     }
-  }
-</style> 
